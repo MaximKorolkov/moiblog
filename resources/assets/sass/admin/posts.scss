@@ -1,0 +1,24 @@
+.field {
+  clear:both;
+  text-align:right;
+  line-height:25px;
+  margin-top:35px;
+
+  fieldset{
+    margin-bottom: 25px;
+  }
+  label {
+    float:left;
+    padding-right:60px;
+    text-align: right;
+
+  }
+  input{
+    float:left;
+
+  }
+  .main {
+    float:left
+  }
+}
+
