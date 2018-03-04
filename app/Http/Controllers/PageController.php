@@ -14,8 +14,8 @@ class PageController extends Controller
         $general = head(Article::$types);
 
         return view('web.home', [
-            'generals' => Article::where('show_post', true)->where('type', $general)->get(),
-            'articles' => Article::where('show_post', true)->where('type', '!=', $general)->orderBy('type')->get(),
+            'generals' => Article::where('published' , true)->where('show_post', true)->where('type', $general)->get(),
+            'articles' => Article::where('published' , true)->where('show_post', true)->where('type', '!=', $general)->orderBy('type')->get(),
             'sliders' => Slider::where('published' , true)->get(),
 
         ]);
