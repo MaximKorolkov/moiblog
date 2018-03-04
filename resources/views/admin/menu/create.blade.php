@@ -40,6 +40,11 @@
                         <option value="{{'category' . '/' . $category->slug}}">{{$category->name}}</option>
                     @endforeach
                     </optgroup>
+                    <optgroup label = "&nbsp&nbspСтраницы">
+                        @foreach($singlePage as $single)
+                            <option value="{{'moiblog.test/' . $single->url}}">{{$single->title}}</option>
+                        @endforeach
+                    </optgroup>
                 </select>
 
             </fieldset>
