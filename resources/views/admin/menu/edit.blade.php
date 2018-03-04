@@ -30,6 +30,11 @@
                     <option value="{{'category' . '/' . $category->slug}}" {{ $category->slug ? 'selected' : '' }}>{{$category->name}}</option>
                 @endforeach
                 </optgroup>
+                <optgroup label = "&nbsp&nbspСтраницы">
+                    @foreach($singlePage as $single)
+                        <option value="{{$single->url}}" {{ $single->url ? 'selected' : '' }}>{{$single->title}}</option>
+                    @endforeach
+                </optgroup>
             </select>
         </fieldset>
 
