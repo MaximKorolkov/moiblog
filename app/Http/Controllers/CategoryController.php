@@ -13,7 +13,7 @@ class CategoryController extends Controller
     {
 
         return view('web.category' , [
-            'articles' => $category->articles()->where('published' , 1)->get(),
+            'articles' => $category->articles()->where('published' , true)->get(),
         ] );
 
     }
