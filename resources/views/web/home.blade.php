@@ -14,5 +14,6 @@
         @endforeach
 
     @include('web.pieces.slider')
+    
 
 @endsection
