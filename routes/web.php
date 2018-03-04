@@ -79,6 +79,7 @@ Route::group(['prefix' => 'admin' , 'namespace' => 'Admin' , 'middleware'=> ['au
         Route::get('/category/{categoryBySlug}' , 'CategoryController@show');
         Route::get('/news' , 'NovostController@NewsPage');
         Route::get('/news/{newsBySlug}' , 'NovostController@showNews');
+        Route::get('/{pageBySlug}' , 'SinglePageController@show');
 
 
 
