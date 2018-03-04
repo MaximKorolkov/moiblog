@@ -7,11 +7,18 @@ use App\Article;
 
 class ArticleController extends Controller
 {
-    public function show(Article $article)
+    public function show()
     {
+        $article = Article::where('published' , true)->first();
         $date = date('d-m-Y', strtotime($article->created_at));
 
-        return view('web.articles' , [ 'article' =>$article , 'date' =>$date ]  );
+
+            return view('web.articles' , [ 'article' =>$article, 'date' =>$date ]  );
+
+
+
+
+
     }
 
     public function general_articles(Article $article)
