@@ -6,7 +6,7 @@
 
 
     @foreach($articles as $article)
-        @if($article->show_post === 1)
+
 
             <div class="col-sm-4 col-md-4">
                 <div class="thumbnail">
@@ -22,7 +22,7 @@
                 </div>
             </div>
 
-        @endif
+
     @endforeach
 
 
