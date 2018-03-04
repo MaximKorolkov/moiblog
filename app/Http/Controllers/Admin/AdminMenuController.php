@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Menu;
 use App\Category;
+use App\SinglePage;
 use Illuminate\Support\Facades\DB;
 
 class AdminMenuController extends Controller
@@ -18,19 +19,21 @@ class AdminMenuController extends Controller
 
     }
 
-    public function create(Category $category)
+    public function create(Category $category , SinglePage $singlePage)
     {
         return view('admin.menu.create' , [
-            'categories' => $category->select(array('slug' , 'name'))->where('published' , 1)->get(),
+            'categories' => $category->select(array('slug' , 'name'))->where('published' , true)->get(),
+            'singlePage' => $singlePage->select(array('url' , 'title'))->where('published' , true)->get(),
             'menu' => Menu::all(),
         ]);
 
     }
-    public function edit( Request $request ,  Menu $menu , Category $category)
+    public function edit( Request $request ,  Menu $menu , Category $category , SinglePage $singlePage)
     {
         return view('admin.menu.edit' ,
             [
-                'categories' => $category->select(array('slug' , 'name'))->where('published' , 1)->get(),
+                'categories' => $category->select(array('slug' , 'name'))->where('published' , true)->get(),
+                'singlePage' => $singlePage->select(array('url' , 'title'))->where('published' , true)->get(),
                 'menu' => $menu
             ]
             );
