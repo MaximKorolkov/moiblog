@@ -17,8 +17,9 @@
             <ul class="nav navbar-nav">
             <li><a href="{{ action('Admin\DashboardController@dashboard')  }}">Главная</a></li>
             <li>
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Публикации <b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Создать <b class="caret"></b></a>
                     <ul class="dropdown-menu">
+                        <li><a href="{{ action('Admin\SinglePageController@index')  }}">Страница</a></li>
                         <li><a href="{{ action('Admin\ArticleController@index')  }}">Статьи</a></li>
                         <li><a href="{{ action('Admin\NovostController@index')  }}"> Новости</a></li>
                 </ul>

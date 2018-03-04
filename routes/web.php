@@ -62,6 +62,15 @@ Route::group(['prefix' => 'admin' , 'namespace' => 'Admin' , 'middleware'=> ['au
         Route::post('/update/{novost}' , 'NovostController@update');
         Route::delete('/destroy/{novost}' , 'NovostController@destroy');
     });
+    Route::group(['prefix' => 'singpage'] , function(){
+
+        Route::get('/index' , 'SinglePageController@index');
+        Route::get('/create' , 'SinglePageController@create');
+        Route::post('/store' , 'SinglePageController@store');
+        Route::get('/edit/{singlePage}' , 'SinglePageController@edit');
+        Route::post('/update/{singlePage}' , 'SinglePageController@update');
+        Route::delete('/destroy/{singlePage}' , 'SinglePageController@destroy');
+    });
 });
 
 
