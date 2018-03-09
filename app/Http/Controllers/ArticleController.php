@@ -4,20 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Article;
+use App\Comment;
 
 class ArticleController extends Controller
 {
-    public function show()
+    public function show(Article $articleBySlug)
     {
-        $article = Article::where('published' , true)->first();
-        $date = date('d-m-Y', strtotime($article->created_at));
+            return view('web.articles' ,
+                [
+                    'article' => $articleBySlug,
+                    'date' =>$articleBySlug->created_at,
+                    'comments' => $articleBySlug->comments,
 
-
-            return view('web.articles' , [ 'article' =>$article, 'date' =>$date ]  );
-
-
-
-
+            ]  );
 
     }
 
@@ -29,5 +28,6 @@ class ArticleController extends Controller
             ]
         )->where('article' , $article->general_article);
     }
+
 
 }
