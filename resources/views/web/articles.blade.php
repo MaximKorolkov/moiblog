@@ -43,6 +43,7 @@
 
             </footer>
                </article>
+           @include('web.pieces.comment')
        </div>
 
 
