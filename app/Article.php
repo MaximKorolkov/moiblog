@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 
-class Article extends Model
+class Article extends BaseModel
 {
 
     protected $fillable = [
@@ -20,6 +20,7 @@ class Article extends Model
         'author' ,
         'per_post',
         'general_image',
+        'image',
         'width_image',
         'height_image',
         'per_post_url',
@@ -41,5 +42,14 @@ class Article extends Model
         return $this->belongsToMany(Category::class);
     }
 
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    public function rubrics()
+    {
+        return $this->belongsToMany(Rubric::class);
+    }
 
 }
