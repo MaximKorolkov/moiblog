@@ -1,0 +1,32 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+/**
+ * @property bool show_image
+ * @property bool published
+ */
+class Rubric extends Model
+{
+    protected $fillable =
+        [
+
+            'article_id',
+            'name',
+            'url',
+            'title',
+            'meta_description',
+            'meta_keywords',
+            'image',
+            'show_image',
+            'description',
+            'published'
+        ];
+
+    public function articles()
+    {
+        return $this->belongsToMany(Article::class);
+    }
+}

@@ -59,7 +59,8 @@
                                     <i class="fa fa-picture-o"></i> Выбрать изображение поста
                                 </a>
                             </span>
-                                        <input id="thumbnail" class="form-control" type="text" name="general_image">
+                                        <input id="thumbnail" class="form-control" type="text" name="general_image"
+                                               value="{{ old('general_image') ? old('general_image') : $novost->general_image}}">
                                     </div>
                                     <img src="{{$novost->general_image}}" id="holder" style="margin-top:15px;max-height:100px;">
                                     <script src="/vendor/laravel-filemanager/js/lfm.js"></script>
@@ -89,7 +90,7 @@
                                     </fieldset>
                                     <fieldset>
                                         <label for="">Показать на главной в колонке новости</label>
-                                        <input type="checkbox" name="show_post" {{ $novost->show_news ? 'checked=1' : '' }}>
+                                        <input type="checkbox" name="show_news" {{ $novost->show_news ? 'checked=1' : '' }}>
                                     </fieldset>
 
                                     <fieldset class="admin-filedsaet">

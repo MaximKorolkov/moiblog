@@ -1,6 +1,7 @@
 @extends('admin.layout')
 
 @section('content')
+    <script src="/vendor/laravel-filemanager/js/lfm.js"></script>
     <div class="container">
         <div class="main" xmlns="http://www.w3.org/1999/html">
             <div class="wrap-form">
@@ -22,6 +23,15 @@
                                     @foreach($categories as $category)
                                         <input type="checkbox" name="category[]" value="{{ $category->id  }}"/>
                                         <label for=""> {{  $category->name }} </label>
+                                    @endforeach>
+                                </fieldset>
+                                <br><br>
+
+                                <br><br>
+                                <fieldset class="article-rubric">
+                                    @foreach($rubrics as $rubric)
+                                        <input type="checkbox" name="rubric[]" value="{{ $rubric->id  }}"/>
+                                        <label for=""> {{  $rubric->name }} </label>
                                     @endforeach>
                                 </fieldset>
                                 <br><br>
@@ -53,14 +63,29 @@
                                     <div class="input-group">
                             <span class="input-group-btn">
                                 <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
-                                    <i class="fa fa-picture-o"></i> Dыбрать изображение поста
+                                    <i class="fa fa-picture-o"></i> Выбрать изображение поста в миниатюре
                                 </a>
                             </span>
                                         <input id="thumbnail" class="form-control" type="text" name="general_image">
                                     </div>
                                     <img id="holder" style="margin-top:15px;max-height:100px;">
-                                    <script src="/vendor/laravel-filemanager/js/lfm.js"></script>
+
                                     <script>$('#lfm').filemanager('image');</script>
+
+
+
+
+                                    <div class="input-group">
+                            <span class="input-group-btn">
+                                <a id="lfm-1" data-input="thumbnail-image" data-preview="holder-image" class="btn btn-primary">
+                                    <i class="fa fa-picture-o"></i> Выбрать изображение
+                                </a>
+                            </span>
+                                        <input id="thumbnail-image" class="form-control" type="text" name="image" />
+                                    </div>
+                                    <img id="holder-image" style="margin-top:15px;max-height:100px;">
+                                    <script>$('#lfm-1').filemanager('image');</script>
+
                                     <fieldset>
                                         <label for="">Ширина миниатюры на главной</label>
                                         <input type="text" name="width_image" id="width_image"

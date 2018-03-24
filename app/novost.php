@@ -28,4 +28,8 @@ class novost extends Model
           'show_news',
           'published',
         ];
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }

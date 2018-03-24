@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Category;
+use App\Rubric;
 use App\Http\Requests\Admin\Articles\ArticleCreateRequest;
 use App\Http\Requests\Admin\Articles\ArticleDestroyRequest;
 use App\Http\Requests\Admin\Articles\ArticleEditRequest;
@@ -19,7 +20,7 @@ class ArticleController extends Controller
     public function index(ArticleIndexRequest $request)
     {
         return view('admin.articles.index' , [
-            'articles' => Article::paginate(5),
+            'articles' => Article::orderBy( 'id' ,'desc')->paginate(5),
         ]);
 
     }
@@ -29,6 +30,7 @@ class ArticleController extends Controller
     {
         return view('admin.articles.create' , [
             'categories' => Category::all(),
+            'rubrics' => Rubric::all(),
             'types' => Article::$types,
         ]);
 
@@ -39,6 +41,7 @@ class ArticleController extends Controller
         return view('admin.articles.edit' , [
             'article' => $article ,
             'categories' => Category::all(),
+            'rubrics' => Rubric::all(),
             'types' => Article::$types,
         ] );
     }
@@ -61,6 +64,7 @@ class ArticleController extends Controller
                     'published',
                     'author',
                     'general_image',
+                    'image',
                     'width_image',
                     'height_image',
                     'show_post',
@@ -79,6 +83,7 @@ class ArticleController extends Controller
             $article->save();
 
             $article->categories()->sync($request->input('category'));
+            $article->rubrics()->sync($request->input('rubric'));
 
             DB::commit();
             return redirect()->action('Admin\ArticleController@index');
@@ -107,6 +112,7 @@ class ArticleController extends Controller
                     'meta_keywords',
                     'author',
                     'general_image',
+                    'image',
                     'width_image',
                     'height_image',
                     'published',

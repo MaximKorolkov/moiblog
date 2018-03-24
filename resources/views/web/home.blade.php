@@ -14,6 +14,6 @@
         @endforeach
 
     @include('web.pieces.slider')
-
+    @include('web.news.news-home')
 
 @endsection

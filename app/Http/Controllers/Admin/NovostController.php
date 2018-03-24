@@ -17,7 +17,7 @@ class NovostController extends Controller
     {
         return view('admin.novosti.index' ,
             [
-            'novost' => novost::paginate(5),
+            'novost' => novost::orderBy( 'id' ,'desc')->paginate(5),
             ]);
     }
 

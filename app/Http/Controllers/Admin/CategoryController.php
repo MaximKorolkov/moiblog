@@ -13,7 +13,7 @@ class CategoryController extends Controller
     {
         return view('admin.category.index' , [
 
-            'categories' => Category::paginate(5),
+            'categories' => Category::orderBy( 'id' ,'desc')->paginate(5),
 
         ]);
 

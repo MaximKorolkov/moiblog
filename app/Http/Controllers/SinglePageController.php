@@ -12,7 +12,7 @@ class SinglePageController extends Controller
 
         return view('web.singlepage.single' ,
             [
-                'singlePage' => $singlePage->where('published' , true)->first()
+                'singlePage' => $singlePage,
             ]);
     }
 }

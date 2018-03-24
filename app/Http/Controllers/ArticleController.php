@@ -5,16 +5,20 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Article;
 use App\Comment;
+use App\Rubric;
+
 
 class ArticleController extends Controller
 {
-    public function show(Article $articleBySlug)
+    public function show(Article $articleBySlug , Rubric $rubricBySlug )
     {
+        auth()->user()->can('create', Article::class);
             return view('web.articles' ,
                 [
                     'article' => $articleBySlug,
                     'date' =>$articleBySlug->created_at,
                     'comments' => $articleBySlug->comments,
+                    'rubrics' => $articleBySlug->rubrics,
 
             ]  );
 

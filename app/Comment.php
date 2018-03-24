@@ -10,7 +10,8 @@ class Comment extends Model
         [
             'name',
             'body',
-            'parent_id'
+            'parent_id',
+            'article_id'
         ];
 
 

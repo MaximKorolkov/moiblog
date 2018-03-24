@@ -1,4 +1,4 @@
-<div class="jumbotron" style="background-image: url({{$article->general_image}})">
+<div class="jumbotron general-image-bg" style="background-image: url({{$article->general_image}})">
     <div class="container">
         <h2>{{$article->title}}</h2>
         <p>{!! $article->short_description !!}</p>

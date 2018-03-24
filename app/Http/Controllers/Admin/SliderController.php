@@ -18,7 +18,7 @@ class SliderController extends Controller
     {
         return view('admin.slider.index' ,
         [
-            'sliders' =>Slider::paginate(5) ,
+            'sliders' =>Slider::orderBy( 'id' ,'desc')->paginate(5) ,
         ]);
     }
 

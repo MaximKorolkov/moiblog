@@ -32,7 +32,7 @@
                 </optgroup>
                 <optgroup label = "&nbsp&nbspСтраницы">
                     @foreach($singlePage as $single)
-                        <option value="{{$single->url}}" {{ $single->url ? 'selected' : '' }}>{{$single->title}}</option>
+                        <option value="{{'page' . '/' . $single->url}}" {{ $single->url ? 'selected' : '' }}>{{$single->title}}</option>
                     @endforeach
                 </optgroup>
             </select>

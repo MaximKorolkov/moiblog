@@ -17,10 +17,13 @@ class PageController extends Controller
             'generals' => Article::where('published' , true)->where('show_post', true)->where('type', $general)->get(),
             'articles' => Article::where('published' , true)->where('show_post', true)->where('type', '!=', $general)->orderBy('type')->get(),
             'sliders' => Slider::where('published' , true)->get(),
+            'novosti' => novost::where('show_news' , 1)->get(),
 
         ]);
 
 
     }
+
+
 
 }

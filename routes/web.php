@@ -17,6 +17,7 @@
 Route::group(['prefix' => 'admin' , 'namespace' => 'Admin' , 'middleware'=> ['auth']] , function ()
 {
     Route::get('/' , 'DashboardController@dashboard')->name('admin.index');
+
     Route::group(['prefix' => 'articles'] , function(){
 
         Route::get('/index' , 'ArticleController@index');
@@ -25,6 +26,16 @@ Route::group(['prefix' => 'admin' , 'namespace' => 'Admin' , 'middleware'=> ['au
         Route::get('/edit/{article}' , 'ArticleController@edit');
         Route::post('/update/{article}' , 'ArticleController@update');
         Route::delete('/destroy/{article}' , 'ArticleController@destroy');
+    });
+
+    Route::group(['prefix' => 'rubric'] , function() {
+
+        Route::get('/index', 'RubricController@index');
+        Route::get('/create', 'RubricController@create');
+        Route::post('/store', 'RubricController@store');
+        Route::get('/edit/{rubrics}', 'RubricController@edit');
+        Route::post('/update/{rubrics}', 'RubricController@update');
+        Route::delete('/destroy/{rubrics}' , 'RubricController@destroy');
     });
     Route::group(['prefix' => 'categories'] , function(){
 
@@ -71,24 +82,44 @@ Route::group(['prefix' => 'admin' , 'namespace' => 'Admin' , 'middleware'=> ['au
         Route::post('/update/{singlePage}' , 'SinglePageController@update');
         Route::delete('/destroy/{singlePage}' , 'SinglePageController@destroy');
     });
+
+    Route::group(['prefix' => 'comment'] , function(){
+
+        Route::get('/index' , 'CommentController@index');
+       /* Route::get('/create' , 'SinglePageController@create');
+        Route::post('/store' , 'SinglePageController@store');
+        Route::get('/edit/{singlePage}' , 'SinglePageController@edit');
+        Route::post('/update/{singlePage}' , 'SinglePageController@update');
+        Route::delete('/destroy/{singlePage}' , 'SinglePageController@destroy');*/
+    });
+
+
+    Route::group(['prefix' => 'abilities'], function() {
+        Route::get('index', 'AbilityController@index');
+        Route::post('update', 'AbilityController@update');
+    });
+
 });
 
 
 
         Route::get('/articles/{articleBySlug}' , 'ArticleController@show');
+        Route::post('/articles/{article}' , 'CommentController@createComment' );
+        /* Route::post('/articles/{articleBySlug}' , 'CommentController@showComment' );*/
         Route::get('/category/{categoryBySlug}' , 'CategoryController@show');
         Route::get('/news' , 'NovostController@NewsPage');
         Route::get('/news/{newsBySlug}' , 'NovostController@showNews');
-        Route::get('/{pageBySlug}' , 'SinglePageController@show');
+        Route::get('/page/{pageBySlug}' , 'SinglePageController@show');
+        Route::get('/rubric/{rubricBySlug}' , 'RubricController@show');
 
 
 
-Route::get('/' , 'PageController@home');
+        Route::get('/' , 'PageController@home');
 
 
 
 
 
-Auth::routes();
+        Auth::routes();
 
 

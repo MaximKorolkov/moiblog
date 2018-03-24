@@ -1,6 +1,7 @@
 @extends('admin.layout')
 
 @section('content')
+    <script src="/vendor/laravel-filemanager/js/lfm.js"></script>
     <div class="container">
 
 
@@ -64,8 +65,22 @@
                        value="{{$article->general_image}}">
             </div>
             <img src="{{$article->general_image}}" id="holder" style="margin-top:15px;max-height:100px;">
-            <script src="/vendor/laravel-filemanager/js/lfm.js"></script>
+
             <script>$('#lfm').filemanager('image');</script>
+
+
+            <div class="input-group">
+                            <span class="input-group-btn">
+                                <a id="lfm-1" data-input="thumbnail-image" data-preview="holder-image" class="btn btn-primary">
+                                    <i class="fa fa-picture-o"></i> Выбрать изображение
+                                </a>
+                            </span>
+                <input id="thumbnail-image" class="form-control" type="text" name="image"
+                       value="{{$article->image}}"
+                />
+            </div>
+            <img src="{{$article->image}}" id="holder-image" style="margin-top:15px;max-height:100px;">
+            <script>$('#lfm-1').filemanager('image');</script>
             <fieldset>
                 <label for="">Ширина миниатюры на главной</label>
                 <input type="text" name="width_image" id="width_image"

@@ -17,7 +17,7 @@ class SinglePageController extends Controller
     {
         return view('admin.singlepage.index' ,
             [
-                'singlePage' => SinglePage::paginate(5),
+                'singlePage' => SinglePage::orderBy( 'id' ,'desc')->paginate(5),
             ]);
     }
 

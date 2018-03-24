@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Article;
 use App\Category;
 use App\novost;
+use App\Rubric;
 use App\SinglePage;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
@@ -33,24 +34,32 @@ class RouteServiceProvider extends ServiceProvider
         Route::model('article' , Article::class);
         Route::model('category' , Category::class);
         Route::model('novost' , novost::class);
+        Route::model('rubrics' , Rubric::class);
         Route::model('SinglePage' , SinglePage::class);
+
         Route::bind('articleBySlug' , function($slug){
 
             return Article::where('slug' , $slug)->first();
         });
+
         Route::bind('categoryBySlug' , function($slug){
 
             return Category::where('slug' , $slug)->first();
         });
 
+        Route::bind('rubricBySlug' , function($url){
+
+            return Rubric::where('url' , $url)->where('published' , true)->first();
+        });
+
         Route::bind('newsBySlug' , function($url){
 
-            return Category::where('url' , $url)->first();
+            return novost::where('url' , $url)->first();
         });
 
         Route::bind('pageBySlug' , function($url){
 
-            return SinglePage::where('url' , $url)->first();
+            return SinglePage::where('url' , $url)->where('published' , true)->first();
         });
     }
 

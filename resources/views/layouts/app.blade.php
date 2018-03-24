@@ -27,6 +27,12 @@
     </div>
 </main>
 
+<footer>
+    <div class="footer">
+
+    </div>
+</footer>
+
     <!-- Scripts -->
 
 </body>

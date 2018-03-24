@@ -22,11 +22,15 @@
                         <li><a href="{{ action('Admin\SinglePageController@index')  }}">Страница</a></li>
                         <li><a href="{{ action('Admin\ArticleController@index')  }}">Статьи</a></li>
                         <li><a href="{{ action('Admin\NovostController@index')  }}"> Новости</a></li>
+                        <li><a href="{{ action('Admin\RubricController@index')  }}">Рубрики</a></li>
+                        <li><a href="{{ action('Admin\AdminMenuController@index')  }}">Меню</a></li>
+                        <li><a href="{{ action('Admin\SliderController@index')  }}">Слайдер</a></li>
+                        <li><a href="{{ action('Admin\CommentController@index')  }}">Комментарии</a></li>
                 </ul>
             </li>
             <li><a href="{{ action('Admin\CategoryController@index')  }}">Категории</a></li>
-            <li><a href="{{ action('Admin\AdminMenuController@index')  }}">Создать меню</a></li>
-            <li><a href="{{ action('Admin\SliderController@index')  }}">Создать слайдер</a></li>
+
+
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
