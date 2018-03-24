@@ -9,6 +9,7 @@ use App\Rubric;
 use App\SinglePage;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Silber\Bouncer\Database\Role;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -36,29 +37,25 @@ class RouteServiceProvider extends ServiceProvider
         Route::model('novost' , novost::class);
         Route::model('rubrics' , Rubric::class);
         Route::model('SinglePage' , SinglePage::class);
+        Route::model('role', Role::class);
 
         Route::bind('articleBySlug' , function($slug){
-
             return Article::where('slug' , $slug)->first();
         });
 
         Route::bind('categoryBySlug' , function($slug){
-
             return Category::where('slug' , $slug)->first();
         });
 
         Route::bind('rubricBySlug' , function($url){
-
             return Rubric::where('url' , $url)->where('published' , true)->first();
         });
 
         Route::bind('newsBySlug' , function($url){
-
             return novost::where('url' , $url)->first();
         });
 
         Route::bind('pageBySlug' , function($url){
-
             return SinglePage::where('url' , $url)->where('published' , true)->first();
         });
     }
@@ -70,20 +67,11 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function map()
     {
-        $this->mapApiRoutes();
-
         $this->mapWebRoutes();
 
-        //
+        $this->mapAdminRoutes();
     }
 
-    /**
-     * Define the "web" routes for the application.
-     *
-     * These routes all receive session state, CSRF protection, etc.
-     *
-     * @return void
-     */
     protected function mapWebRoutes()
     {
         Route::middleware('web')
@@ -91,18 +79,10 @@ class RouteServiceProvider extends ServiceProvider
              ->group(base_path('routes/web.php'));
     }
 
-    /**
-     * Define the "api" routes for the application.
-     *
-     * These routes are typically stateless.
-     *
-     * @return void
-     */
-    protected function mapApiRoutes()
+    protected function mapAdminRoutes()
     {
-        Route::prefix('api')
-             ->middleware('api')
-             ->namespace($this->namespace)
-             ->group(base_path('routes/api.php'));
+        Route::middleware('admin')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/admin.php'));
     }
 }

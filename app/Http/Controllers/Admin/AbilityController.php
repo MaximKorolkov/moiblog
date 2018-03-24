@@ -23,7 +23,11 @@ class AbilityController extends Controller
                 'read',
                 'create',
                 'update',
+                'delete',
             ],
+            'global' => [
+                'dashboard'
+            ]
         ];
     }
 

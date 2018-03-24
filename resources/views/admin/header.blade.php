@@ -29,7 +29,8 @@
                 </ul>
             </li>
             <li><a href="{{ action('Admin\CategoryController@index')  }}">Категории</a></li>
-
+            <li><a href="{{ action('Admin\RoleController@index') }}">Роли</a></li>
+            <li><a href="{{ action('Admin\UserController@index') }}">Пользователи</a></li>
 
             </ul>
         </div><!-- /.navbar-collapse -->

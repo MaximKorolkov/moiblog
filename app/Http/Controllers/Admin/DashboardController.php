@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\Admin\DashboardIndexRequest;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -12,7 +13,7 @@ use Silber\Bouncer\Database\Role;
 class DashboardController extends Controller
 {
     // Метод для показа главной страницы Панели Администратора
-    public function dashboard()
+    public function dashboard(DashboardIndexRequest $request)
     {
         $article = Article::find(1);
 
