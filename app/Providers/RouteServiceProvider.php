@@ -7,6 +7,8 @@ use App\Category;
 use App\novost;
 use App\Rubric;
 use App\SinglePage;
+use App\Thread;
+use App\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Silber\Bouncer\Database\Role;
@@ -38,6 +40,7 @@ class RouteServiceProvider extends ServiceProvider
         Route::model('rubrics' , Rubric::class);
         Route::model('SinglePage' , SinglePage::class);
         Route::model('role', Role::class);
+        Route::model('thread', Thread::class);
 
         Route::bind('articleBySlug' , function($slug){
             return Article::where('slug' , $slug)->first();
@@ -58,6 +61,10 @@ class RouteServiceProvider extends ServiceProvider
         Route::bind('pageBySlug' , function($url){
             return SinglePage::where('url' , $url)->where('published' , true)->first();
         });
+
+
+
+       ;
     }
 
     /**

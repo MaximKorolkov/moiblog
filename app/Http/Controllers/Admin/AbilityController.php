@@ -4,7 +4,13 @@ namespace App\Http\Controllers\Admin;
 
 
 use App\Article;
+use App\Category;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\Ability\AbilityIndexRequest;
+use App\Menu;
+use App\novost;
+use App\SinglePage;
+use App\Slider;
 use App\User;
 use Illuminate\Http\Request;
 use Bouncer;
@@ -17,7 +23,12 @@ class AbilityController extends Controller
     public function __construct()
     {
         $this->actions = [
-            Article::class => Article::getActions(),
+            Article::class    => Article::getActions(),
+            Category::class   => Category::getActions(),
+            Menu::class       => Menu::getActions(),
+            novost::class     => novost::getActions(),
+            Slider::class     => Slider::getActions(),
+            SinglePage::class => SinglePage::getActions(),
             User::class => User::getActions(),
             Role::class => [
                 'read',
@@ -26,12 +37,13 @@ class AbilityController extends Controller
                 'delete',
             ],
             'global' => [
-                'dashboard'
+                'dashboard',
+                'abilities-batch-edit'
             ]
         ];
     }
 
-    public function index()
+    public function index(/*AbilityIndexRequest $request*/)
     {
         return view('admin.abilities.index', [
             'roles' => Role::all(),

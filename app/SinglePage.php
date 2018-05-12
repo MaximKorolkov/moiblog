@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property bool published
  * @property bool add_menu
  */
-class SinglePage extends Model
+class SinglePage extends BaseModel
 {
 
     protected $fillable =

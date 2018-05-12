@@ -131,6 +131,7 @@ class ArticleController extends Controller
             $article->save();
 
             $article->categories()->sync($request->input('category'));
+            $article->rubrics()->sync($request->input('rubric'));
 
             DB::commit();
 

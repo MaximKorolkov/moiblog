@@ -27,11 +27,11 @@
     </div>
 </main>
 
-<footer>
+{{--<footer>
     <div class="footer">
 
     </div>
-</footer>
+</footer>--}}
 
     <!-- Scripts -->
 

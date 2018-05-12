@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Slider extends Model
+class Slider extends BaseModel
 {
     protected $fillable =
     [

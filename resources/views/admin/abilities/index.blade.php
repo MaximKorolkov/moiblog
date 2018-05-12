@@ -9,7 +9,7 @@
                     <thead>
                     <tr>
                         {{-- TODO title --}}
-                        <th>{{ trans("admin/ability.model-permission") }}</th>
+                        <th>{{ trans("ability.Access") }}</th>
                         @foreach ($roles as $role)
                             <th class="text-center">{{ $role->title }}</th>
                         @endforeach
@@ -21,7 +21,7 @@
                             @if ($loop->first)
                                 <tr class="success">
                                     {{-- TODO Role Name --}}
-                                    <td colspan="{{ count($roles) + 1 }}"><b>{{ trans('admin/ability.models.' . class_basename($model)) }}</b></td>
+                                    <td colspan="{{ count($roles) + 1 }}"><b>{{ trans('ability.models' ) .' '. class_basename($model)}}</b></td>
                                 </tr>
                             @endif
                             <tr>

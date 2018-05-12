@@ -12,7 +12,7 @@ class ArticleController extends Controller
 {
     public function show(Article $articleBySlug , Rubric $rubricBySlug )
     {
-        auth()->user()->can('create', Article::class);
+        /*auth()->user()->can('create', Article::class);*/
             return view('web.articles' ,
                 [
                     'article' => $articleBySlug,

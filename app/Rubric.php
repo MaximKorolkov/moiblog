@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property bool show_image
  * @property bool published
  */
-class Rubric extends Model
+class Rubric extends BaseModel
 {
     protected $fillable =
         [

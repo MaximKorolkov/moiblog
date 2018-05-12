@@ -11,6 +11,7 @@ use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Notifications\Notifiable;
 use Silber\Bouncer\Database\HasRolesAndAbilities;
 
+
 class User extends BaseModel implements
     AuthenticatableContract,
     AuthorizableContract,
@@ -28,8 +29,40 @@ class User extends BaseModel implements
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name',
+        'email',
+        'password',
+        'city',
+        'about',
+        'published_email',
+        'social_vk',
+        'social_fb',
+        'social_twitter',
+        'social_instagram',
+        'social_google',
+        'social_telegram',
+        'site',
     ];
+
+    public function followers()
+    {
+        return $this->belongsToMany(User::class, 'user_followers', 'follower_id', 'user_id');
+    }
+
+    public function subscribers()
+    {
+        return $this->belongsToMany(User::class, 'user_subscribers', 'subscriber_id', 'user_id');
+    }
+
+    public function threads()
+    {
+        return $this->belongsToMany(Thread::class, 'thread_users');
+    }
+
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
 
     /**
      * The attributes that should be hidden for arrays.

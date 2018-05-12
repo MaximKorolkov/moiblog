@@ -27,6 +27,17 @@
 
                 @endforeach
             </fieldset>
+            <fieldset class="article-rubric">
+
+                @foreach($rubrics as $rubric)
+
+                    <input id="rubric" type="checkbox" name="rubric[]" value="{{ $rubric->id  }}"
+                     {{ $article->rubrics()->find($rubric->id) ? 'checked=checked' : '' }}
+                    />
+
+                    <label for="rubric"> {{  $rubric->name }} </label>
+                @endforeach
+            </fieldset>
             <fieldset>
                 <label for="title">H1 тег</label>
                 <input type="text" name="header_h1" id="header_h1"

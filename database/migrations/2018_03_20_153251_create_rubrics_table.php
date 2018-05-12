@@ -15,9 +15,9 @@ class CreateRubricsTable extends Migration
     {
         Schema::create('rubrics', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->unique();
+            $table->string('name');
             $table->string('url')->unique();
-            $table->string('title');
+            $table->string('title')->nullable();
             $table->string('meta_description')->nullable();
             $table->string('meta_keywords')->nullable();
             $table->string('image')->nullable();

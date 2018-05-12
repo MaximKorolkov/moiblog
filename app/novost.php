@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property bool show_news
  * @property mixed text
  */
-class novost extends Model
+class novost extends BaseModel
 {
     protected $fillable =
         [
