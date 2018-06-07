@@ -12,6 +12,9 @@ use Illuminate\Notifications\Notifiable;
 use Silber\Bouncer\Database\HasRolesAndAbilities;
 
 
+/**
+ * @property mixed articles
+ */
 class User extends BaseModel implements
     AuthenticatableContract,
     AuthorizableContract,
@@ -62,6 +65,11 @@ class User extends BaseModel implements
     public function messages()
     {
         return $this->hasMany(Message::class);
+    }
+
+    public function articles()
+    {
+        return $this->hasMany(Article::class);
     }
 
     /**

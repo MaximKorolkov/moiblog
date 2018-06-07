@@ -16,16 +16,15 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('js/responsiveCarousel.js')}}"></script>
+
 </head>
 <body>
 @yield('header')
 
-<main>
-    <div class="app-container">
+
         @yield('layout')
-    </div>
-</main>
+
+
 
 {{--<footer>
     <div class="footer">

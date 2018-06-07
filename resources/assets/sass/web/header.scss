@@ -1,0 +1,38 @@
+/* Style for Site-Header */
+header{
+  display: -webkit-flex;
+  display: flex;
+  justify-content:space-between;
+  background-color: #151515;
+  color: #fff;
+  font-family: Open Sans;
+  border-bottom: 1px solid #fff;
+  border-top: 2px outset #fff;
+}
+
+.header__section{
+  display: -webkit-flex;
+  display: flex;
+  -ms-align-items: center;
+  align-items: center;
+  margin-left: 3%;
+
+}
+.header__item{
+  font-size: 16px;
+  padding: 10px 15px;
+  margin: 3px;
+}
+.header__item:hover a{
+  padding-bottom: 5px;
+  border-bottom: 1px solid #F22512;
+
+}
+.header__item.headerButton.search{
+  cursor: pointer;
+  fill:#ffffff;
+}
+.header__item.headerButton.search:hover{
+  fill:#F22512;
+
+}

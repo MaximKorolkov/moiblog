@@ -6,27 +6,28 @@
     <div class="container">
         <div class="row">
             @foreach($thread->messages as $message)
-                <div class="col-md-6 {{ auth()->user()->id === $message->user->id ? 'own' : '' }}">
+                <div class="{{ auth()->user()->id === $message->user->id ? 'own' : '' }}" >
+                <div class="author">
+                    @if(auth()->user()->id === $message->user->id)
+                       <h4> Вы</h4>
+                    @else
+                       <h4> {{ $message->user->name }}</h4>
+                    @endif
+                </div>
+                <div class="date">
+                    <date>{{ $message->created_at->format('d.M.y') }}</date>
+                </div>
                     <div class="text">
-                        {{ $message->text }}
-                    </div>
-                    <div class="author">
-                        @if(auth()->user()->id === $message->user->id)
-                            Вы
-                        @else
-                            {{ $message->user->name }}
-                        @endif
-                    </div>
-                    <div class="date">
-                        {{ $message->created_at->format('d.M.y') }}
+                        <p>{{ $message->text }}</p>
                     </div>
                 </div>
             @endforeach
         </div>
         <form action="{{ action('MessageController@create', $thread->id) }}" method="POST">
             {{ csrf_field() }}
-            <textarea name="text" id="text" cols="30" rows="10"></textarea>
-            <button type="submit">Отправить</button>
+            <label for="label-meseng">Введите текст сообщения</label>
+            <textarea name="text" id="text" cols="160" rows="5"></textarea>
+            <button style="margin-bottom: 26px;" class="btn btn-danger" type="submit">Отправить</button>
         </form>
     </div>
 @endsection

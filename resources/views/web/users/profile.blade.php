@@ -6,7 +6,6 @@
 @include('web.header')
 
 @section('layout')
-
 <div class="profile">
     <div class="profile-content">
         <div class="left-content">
@@ -35,7 +34,9 @@
                 @endif
                 <li><a href="#">Друзья</a></li>
                 <li><a href="#">Коментарии</a></li>
-                <li><a href="#">Посты</a></li>
+                @if($user->id === auth()->user()->id)
+                <li><a href="{{  action('UserPostController@index' , $user->id)  }}">Посты</a></li>
+                @endif
                 <li>
                     @if($user->id == auth()->user()->id)
                         <a href="{{ action('ThreadController@index', $user->id) }}">Сообщения</a>
@@ -50,14 +51,18 @@
 
             <ul>
 
-                <li> Ваш ник : {{auth()->user()->name}}</li>
+
+
+                    <li>Ваш ник : {{$user->name}}</li>
+
+
                 @if($user->published_email)
-                    <li>Ваша почта : {{auth()->user()->email}}</li>
+
+                       <li>Ваша почта : {{$user->email}}</li>
                 @endif
                 <li>Ваш город : {{$user->city}}</li>
                 <li>Ваш сайт : <a href="{{ $user->site }}">{{ $user->site }}</a></li>
             </ul>
-
 
 
         </div>

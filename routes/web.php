@@ -11,7 +11,8 @@
 |
 */
 
-    Route::get('/articles/{articleBySlug}' , 'ArticleController@show');
+
+Route::get('/articles/{articleBySlug}' , 'ArticleController@show');
     Route::post('/articles/{article}' , 'CommentController@createComment' );
     /* Route::post('/articles/{articleBySlug}' , 'CommentController@showComment' );*/
     Route::get('/category/{categoryBySlug}' , 'CategoryController@show');
@@ -29,6 +30,9 @@
             Route::post('/update', 'UserController@update');
             Route::post('/subscribe', 'UserController@addSubscribe');
             Route::post('/unsubscribe', 'UserController@deleteSubscribe');
+            Route::get('/my-post' , 'UserPostController@index');
+            Route::get('/create-post' , 'UserPostController@create');
+            Route::post('/store-post' , 'UserPostController@store');
 
             Route::group(['prefix' => 'thread'], function() {
                 Route::get('/', 'ThreadController@index');

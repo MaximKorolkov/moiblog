@@ -8,6 +8,7 @@
 
 @section('layout')
 
+
     <article class="article">
         <header class="article__header">
             @if($article->image != '')
@@ -26,7 +27,7 @@
                           title="Время создания статьи : {{  $date }}">
                         {{  $date   }}
                     </time>
-                    <span class="article__header__author"><span>{!! $article->author !!}</span></span>
+                    <span class="article__header__author"><span>{!! $user_articles->name !!}</span></span>
 
 
                 <div class="article__text">
@@ -35,6 +36,12 @@
 
 
             <footer class="article__footer">
+                <div class="rubric">
+                    <h3>Рубрики</h3>
+                @foreach($rubrics as $rubric)
+                    <a href="{{'/rubric' .'/'.$rubric->url}}">{{  $rubric->name  }}</a>
+                @endforeach
+                </div>
                 @if(isset($article->per_post) and isset($article->per_post_url))
                  <a class="article_footer__prev" href="{{ '/article' . '/' . $article->per_post_url }}">
                      <i class="glyphicon glyphicon-backward"></i>
@@ -54,9 +61,7 @@
            @include('web.pieces.comment')
 
 
-          @foreach($rubrics as $rubric)
-               <a href="{{'/rubric' .'/'.$rubric->url}}">{{  $rubric->name  }}</a>
-           @endforeach
+
        </div>
     </div>
     </div>

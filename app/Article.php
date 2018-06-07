@@ -9,6 +9,7 @@ class Article extends BaseModel
 {
 
     protected $fillable = [
+        'user_id',
         'title',
         'header_h1',
         'short_description',
@@ -50,6 +51,11 @@ class Article extends BaseModel
     public function rubrics()
     {
         return $this->belongsToMany(Rubric::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 
 }

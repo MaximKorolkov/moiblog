@@ -17,7 +17,7 @@ class DashboardController extends Controller
     {
         $article = Article::find(1);
 
-        $article->canUserActionWithOwn('delete', auth()->user());
+       /* $article->canUserActionWithOwn('delete', auth()->user());*/
 
         auth()->user()->can('create', $article);
 

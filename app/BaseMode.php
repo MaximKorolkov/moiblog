@@ -10,6 +10,7 @@ BaseModel extends Model
 {
     public $actions = [
         'create',
+        'create-own',
         'read',
         'read-own',
         'update',

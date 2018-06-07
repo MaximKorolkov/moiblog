@@ -76,6 +76,8 @@ class ArticleController extends Controller
                 ]
             ));
 
+            $article->user = auth()->user()->id;
+
             $article->slug = str_slug($article->title);
             $article->published = !empty($request->input('published'));
             $article->show_post = !empty($request->input('show_post'));
@@ -124,6 +126,8 @@ class ArticleController extends Controller
                     'type',
                 ]
             ));
+
+            $article->user = auth()->user()->id;
             $article->slug = str_slug($article->title);
             $article->published = !empty($request->input('published'));
             $article->show_post = !empty($request->input('show_post'));

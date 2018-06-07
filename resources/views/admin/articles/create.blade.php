@@ -20,8 +20,9 @@
 
                                 </fieldset>
                                 <fieldset class="article-categories">
+                                    <label for="category">Категории</label>
                                     @foreach($categories as $category)
-                                        <input type="checkbox" name="category[]" value="{{ $category->id  }}"/>
+                                        <input type="checkbox" name="category[]" value="{{ $category->id  }}" id="category" />
                                         <label for=""> {{  $category->name }} </label>
                                     @endforeach>
                                 </fieldset>
@@ -29,8 +30,9 @@
 
                                 <br><br>
                                 <fieldset class="article-rubric">
+                                    <label for=rubric"">Руборики</label>
                                     @foreach($rubrics as $rubric)
-                                        <input type="checkbox" name="rubric[]" value="{{ $rubric->id  }}"/>
+                                        <input type="checkbox" name="rubric[]" value="{{ $rubric->id  }}" id="rubric"/>
                                         <label for=""> {{  $rubric->name }} </label>
                                     @endforeach>
                                 </fieldset>

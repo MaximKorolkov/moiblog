@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Article;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Category;
+use App\Rubric;
 
 class UserController extends Controller
 {
@@ -82,4 +85,14 @@ class UserController extends Controller
 
         return redirect()->action('UserController@index', $user->id);
     }
+
+    public function UserCreatePost(Article $article){
+        return view('web.users.posts' , [
+            'categories' => Category::all(),
+            'rubrics' => Rubric::all(),
+            'types' => Article::$types,
+        ]);
+    }
+
+   
 }

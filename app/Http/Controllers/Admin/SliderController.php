@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Article;
 use App\Http\Controllers\Controller;
 use App\Slider;
 use Illuminate\Http\Request;
@@ -18,7 +19,7 @@ class SliderController extends Controller
     {
         return view('admin.slider.index' ,
         [
-            'sliders' =>Slider::orderBy( 'id' ,'desc')->paginate(5) ,
+            'sliders' =>Slider::orderBy( 'id' ,'desc')->paginate(20) ,
         ]);
     }
 
