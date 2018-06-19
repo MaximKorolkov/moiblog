@@ -85,6 +85,10 @@
                                         <input type="checkbox" name="published" id="published" {{ $rubrics->published ? 'checked=1' : ''  }}/>
 
                                     </fieldset>
+                                    <fieldset>
+                                        <label for="sort_id">Сортировка</label>
+                                        <input type="text" name="sort_id" value="{{old('sort_id') ? old('sort_id') : $rubrics->sort_id}}">
+                                    </fieldset>
                                 </div>
                                 <div class="form-group">
                                     <fieldset class="admin-filedsaet">

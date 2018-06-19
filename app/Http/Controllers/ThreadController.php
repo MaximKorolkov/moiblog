@@ -19,8 +19,8 @@ class ThreadController extends Controller
 
     public function create(Request $request, User $user)
     {
-        $currentThread = auth()->user()->threads()->whereHas('users', function($quert) use ($user) {
-            $quert->where('user_id', $user->id);
+        $currentThread = auth()->user()->threads()->whereHas('users', function($query) use ($user) {
+            $query->where('thread_users.user_id', $user->id);
         })->first();
 
         if (!empty($currentThread)) {

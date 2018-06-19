@@ -17,6 +17,7 @@ class RubricController
     public function show(Rubric $rubricBySlug , Article $articles)
     {
 
+
         return view('web.rubric.index' ,
             [
                 'rubrics' => $rubricBySlug,

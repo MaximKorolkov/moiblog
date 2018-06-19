@@ -14,6 +14,7 @@ class Rubric extends BaseModel
         [
 
             'article_id',
+            'sort_id',
             'name',
             'url',
             'title',

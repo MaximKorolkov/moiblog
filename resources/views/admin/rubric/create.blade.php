@@ -82,6 +82,11 @@
                                         <input type="checkbox" name="published" id="published"/>
 
                                     </fieldset>
+
+                                    <fieldset>
+                                        <label for="sort_id">Сортировка</label>
+                                        <input type="text" name="sort_id" id="sort_id" >
+                                    </fieldset>
                                 </div>
                                 <div class="form-group">
                                     <fieldset class="admin-filedsaet">

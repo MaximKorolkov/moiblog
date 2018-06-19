@@ -2,11 +2,16 @@
 
 namespace App;
 
+use App\Presenters\ArticlePresenter;
 use Illuminate\Database\Eloquent\Model;
+use Laracasts\Presenter\PresentableTrait;
 
 
 class Article extends BaseModel
 {
+    use PresentableTrait;
+
+    protected $presenter = ArticlePresenter::class;
 
     protected $fillable = [
         'user_id',

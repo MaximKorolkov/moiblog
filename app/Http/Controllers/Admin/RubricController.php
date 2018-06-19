@@ -51,6 +51,7 @@ class RubricController extends Controller
 
                 [
                 'name',
+                'sort_id',
                 'url',
                 'title',
                 'meta_description',
@@ -111,6 +112,7 @@ class RubricController extends Controller
               [
                 'name',
                 'url',
+                'sort_id',
                 'title',
                 'meta_description',
                 'meta_keywords',

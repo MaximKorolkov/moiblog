@@ -24,14 +24,14 @@
             </div>
             @else
                 <div class="header__item headerButton">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
-                        {{ Auth::user()->name }} <span class="caret"></span>
+                    <a href="{{action('UserController@index', auth()->user()->id)}}" >
+                        {{ Auth::user()->name }}
                     </a>
                 </div>
-                <div class="header__item headerButton">
+               {{-- <div class="header__item headerButton">
                     <ul class="dropdown-menu pull-right">
                         <li>
-                            <a href="{{action('UserController@index', auth()->user()->id)}}">Личный кабинет</a>
+                            <a href="">Личный кабинет</a>
                         </li>
                         <li>
                             <a href="{{ route('logout') }}"
@@ -45,7 +45,7 @@
                             </form>
                         </li>
                     </ul>
-                    </div>
+                    </div>--}}
                 @endguest
 
         </nav>

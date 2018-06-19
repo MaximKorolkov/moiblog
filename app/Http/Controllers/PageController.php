@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\novost;
 use Illuminate\Http\Request;
+use App\Rubric;
 use App\Article;
 use App\Slider;
+use Silber\Bouncer\Database\Role;
 
 class PageController extends Controller
 {
@@ -18,20 +20,28 @@ class PageController extends Controller
 
 
 
-
         return view('web.home', [
-            'generals' => Article::where('published' , true)->where('show_post', true)->where('type', $general)->limit(1)->orderBy('id' , 'desc')->get(),
-            'seconds' => Article::where('published' , true)->where('show_post', true)->where('type' , $second)->limit(1)->orderBy('id' , 'desc')->get(),
-            'thirds' => Article::where('published' , true)->where('show_post', true)->where('type' , $third)->limit(1)->orderBy('id' , 'desc')->get(),
-            'grids'    => Article::where('published' , true)->where('show_post' , true)->where('type' , $grid)->limit(6)->orderBy('id' , 'desc')->get(),
+            'generals' => $this->getArticlesByType($general , 1 , 'desc'),
+            'seconds'  => $this->getArticlesByType($second ,  1 , 'desc'),
+            'thirds'   => $this->getArticlesByType($third , 1 , 'desc'),
+            'grids'    => $this->getArticlesByType($grid, 6, 'desc')->map(function(Article $article) {
+                return $article->present()->main();
+            }),
             'sliders'  => Slider::where('published' , true)->get(),
             'novosti'  => novost::where('show_news' , true)->get(),
-
         ]);
 
 
     }
 
-
+    private function getArticlesByType($type, $count, $sort)
+    {
+        return Article::where('published' , true)
+            ->where('show_post', true)
+            ->where('type', $type)
+            ->limit($count)
+            ->orderBy('id' , $sort)
+            ->get();
+    }
 
 }

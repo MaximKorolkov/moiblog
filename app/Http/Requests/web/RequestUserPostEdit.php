@@ -1,15 +1,18 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: maxim
- * Date: 12.06.18
- * Time: 19:55
- */
 
 namespace App\Http\Requests\Web;
 
+use Illuminate\Foundation\Http\FormRequest;
 
-class RequestUserPostEdit
+class RequestUserPostEdit extends FormRequest
 {
+    public function authorize()
+    {
+        return $this->user()->id === $this->route('user')->id;
+    }
 
+    public function rules()
+    {
+        return [];
+    }
 }

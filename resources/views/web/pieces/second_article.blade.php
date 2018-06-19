@@ -1,28 +1,14 @@
-{{--<div class="col-sm-7">
-<div class="jumbotron s-t-size" style="background-image: url({{$article->general_image}})">
-    <div class="container">
-        <h3>{{$article->title}}</h3>
-        <p>{!! $article->short_description !!}</p>
-
-            <a href="{{ action('ArticleController@show' , $article->slug)  }}"
-               class="btn btn-primary btn-lg"
-               role="button">Подробнее
-            </a>
-
-    </div>
-</div>
-</div>--}}
-
 <div class="second__item-first">
     <a href="{{ action('ArticleController@show' , $article->slug)  }}">
         <img src="{{$article->general_image}}"  alt="{$article->title}}">
+        </a>
         <div class="secont__text">
+            <a href="{{ action('ArticleController@show' , $article->slug)  }}">
             <h3>{{$article->title}}</h3>
-            <p>{!! $article->short_description !!}</p>
-            </div>
+            {!! $article->short_description !!}
+
     </a>
     <div class="help-second-icons" >
-
         <div class="help-tems-like-second">
             <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                  viewBox="0 0 611.993 611.993" style="enable-background:new 0 0 611.993 611.993;"
@@ -82,6 +68,7 @@
         </div>
         <a href=""><div class="help-tems-rubric-second">Кино и Сериалы</div></a>
 
+        </div>
     </div>
 </div>
 

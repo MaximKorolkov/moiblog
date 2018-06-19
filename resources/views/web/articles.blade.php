@@ -27,6 +27,7 @@
                           title="Время создания статьи : {{  $date }}">
                         {{  $date   }}
                     </time>
+
                     <span class="article__header__author"><span>{!! $user_articles->name !!}</span></span>
 
 

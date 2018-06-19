@@ -8,7 +8,7 @@
             <div class="user-post">
                 <div class="user-post-wrapper">
 
-
+                    <a href="{{action('UserPostController@create', auth()->user()->id)}}">Создать статью</a>
 
             @foreach($articles as $article )
 
@@ -20,6 +20,10 @@
                         </div>
 
                     @endif
+                    <a href="{{ action( 'UserPostController@edit', [
+                        'user' => auth()->user()->id,
+                        'article' => $article->id,
+                    ])  }}">Редактировать</a>
                 </div>
             @endforeach
              </div>

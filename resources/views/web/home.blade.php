@@ -1,6 +1,7 @@
 @extends('web.layout')
 
 @section('content')
+
     <main class="main__content">
         <div class="main__content__wrapper">
     @foreach($generals as $general)
@@ -9,6 +10,7 @@
     @endforeach
 
      <section class="home__article__section">
+
         @foreach($seconds  as $second)
             @include("web.pieces.{$second->type}_article", [
                 'article' => $second,])
@@ -23,7 +25,7 @@
                 <h3>ТОП Статьи</h3>
             </div>
          @foreach($grids as $grid)
-             @include("web.pieces.{$grid->type}_article" , [
+             @include("web.pieces.{$grid['type']}_article" , [
              'article' => $grid,])
          @endforeach
      </section>

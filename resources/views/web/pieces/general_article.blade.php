@@ -1,24 +1,11 @@
-{{--<div class="jumbotron general-image-bg" style="background-image: url({{$article->general_image}})">
-    <div class="container">
-        <h2>{{$article->title}}</h2>
-        <p>{!! $article->short_description !!}</p>
-        <p>
-            <a href="{{ action('ArticleController@show' , $article->slug)  }}"
-               class="btn btn-primary btn-lg"
-               role="button">Узнать больше
-            </a>
-        </p>
-    </div>
-</div>--}}
-
-        <!-- Site Top content Start -->
+ <!-- Site Top content Start -->
         <section class="top__section" style="background-image: url({{$article->general_image}})">
             <div class="top__cover">
                 <div class="top__item">
                     <div class="top_image_item">
                         <a href="{{ action('ArticleController@show' , $article->slug)  }}">
                             <h2>{{$article->title}}</h2>
-                            <p>{!! $article->short_description !!}</p>
+                            {!! $article->short_description !!}
                         </a>
                     </div>
 

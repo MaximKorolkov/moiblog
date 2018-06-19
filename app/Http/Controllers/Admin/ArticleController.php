@@ -12,6 +12,7 @@ use App\Http\Requests\Admin\Articles\ArticleStoreRequest;
 use App\Http\Requests\Admin\Articles\ArticleUpdateRequest;
 use App\Http\Controllers\Controller;
 use App\Article;
+use App\User;
 use Illuminate\Support\Facades\DB;
 
 class ArticleController extends Controller
@@ -20,7 +21,7 @@ class ArticleController extends Controller
     public function index(ArticleIndexRequest $request)
     {
         return view('admin.articles.index' , [
-            'articles' => Article::orderBy( 'id' ,'desc')->paginate(5),
+            'articles' => Article::orderBy( 'id' ,'desc')->paginate(50),
         ]);
 
     }
@@ -36,8 +37,9 @@ class ArticleController extends Controller
 
     }
 
-    public function edit(ArticleEditRequest $request , Article $article)
+    public function edit(ArticleEditRequest $request  , Article $article)
     {
+
         return view('admin.articles.edit' , [
             'article' => $article ,
             'categories' => Category::all(),
@@ -46,7 +48,7 @@ class ArticleController extends Controller
         ] );
     }
 
-    public function store(ArticleStoreRequest $request)
+    public function store(ArticleStoreRequest $request )
     {
         DB::beginTransaction();
         try{
@@ -73,11 +75,11 @@ class ArticleController extends Controller
                     'next_post',
                     'next_post_url',
                     'type',
+
                 ]
             ));
 
-            $article->user = auth()->user()->id;
-
+            $article->user_id = auth()->user()->id;
             $article->slug = str_slug($article->title);
             $article->published = !empty($request->input('published'));
             $article->show_post = !empty($request->input('show_post'));
@@ -127,7 +129,6 @@ class ArticleController extends Controller
                 ]
             ));
 
-            $article->user = auth()->user()->id;
             $article->slug = str_slug($article->title);
             $article->published = !empty($request->input('published'));
             $article->show_post = !empty($request->input('show_post'));

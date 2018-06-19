@@ -1,31 +1,14 @@
-{{--
-<div class="col-sm-4 col-md-4">
-    <div class="thumbnail">
-        <img src="{{$article->general_image}}"
-             width="{{$article->width_image}}" height="{{$article->height_image}}"
-             title="{{$article->title}}"
-             alt="{{$article->title}}">
-        <div class="caption">
-            <h3>{{$article->title}}</h3>
-            {!! $article->short_description !!}
-            <p><a href="{{ action('ArticleController@show' , $article->slug)  }}"
-                  class="btn btn-primary" role="button">Читать Далее</a>
-
-        </div>
-    </div>
-</div>--}}
-
-
 <div class="grid__item">
-    <a href="{{ action('ArticleController@show' , $article->slug)  }}">
-        <img src="{{$article->general_image}}" width="{{$article->width_image}}" height="{{$article->height_image}}"
-             title="{{$article->title}}">
-
+    <a href="{{ action('ArticleController@show' , $article['slug'])  }}">
+        <img src="{{$article['general_image']}}" width="{{$article['width_image']}}" height="{{$article['height_image']}}"
+             title="{{$article['title']}}">
+	</a>
         <div class="grid__item_text">
-            <h4>{{$article->title}}</h4>
-            <p>{!! $article->short_description !!}</p>
-            </div>
-    </a>
+			<a href="{{action('ArticleController@show' , $article['slug'])}}">
+            <h4>{{$article['title']}}</h4>
+            <p>{!! $article['short_description'] !!}</p>
+			</a>
+
     <span class="grid_help_like">
 						<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                              width="25px" height="25px" viewBox="0 0 611.993 611.993" style="enable-background:new 0 0 611.993 611.993;"
@@ -83,7 +66,9 @@
                                 </svg>
 
 						</span>
-
-    <a href=""><span class="grid_help_rubric">Игры</span></a>
+	@foreach($article['rubrics'] as $rubric)
+    	<a href="{{'rubric/' . $rubric->url}}"><span class="grid_help_rubric">{{$rubric->name}}</span></a>
+	@endforeach
+</div>
 </div>
 

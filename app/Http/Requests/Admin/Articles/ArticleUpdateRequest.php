@@ -9,6 +9,7 @@
 namespace App\Http\Requests\Admin\Articles;
 
 
+use App\Article;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ArticleUpdateRequest extends FormRequest
@@ -16,7 +17,7 @@ class ArticleUpdateRequest extends FormRequest
 
     public function authorize()
     {
-        return $this->user()->id === 1;
+        return $this->user()->can('update' , Article::class);
     }
     public function rules()
     {

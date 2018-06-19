@@ -15,6 +15,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="{{ asset('js/echo-1.1.2.js') }}"></script>
+    <script src="{{ asset('js/socket.io-1.4.5.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
 
 </head>

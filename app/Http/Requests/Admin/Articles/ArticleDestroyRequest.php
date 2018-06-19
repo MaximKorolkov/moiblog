@@ -9,13 +9,14 @@
 namespace App\Http\Requests\Admin\Articles;
 
 
+use App\Article;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ArticleDestroyRequest extends FormRequest
 {
     public function authorize()
     {
-        return $this->user()->id === 1;
+        return $this->user()->can('delete' , Article::class);
     }
     public function rules()
     {

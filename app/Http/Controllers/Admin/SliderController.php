@@ -33,6 +33,7 @@ class SliderController extends Controller
         return view('admin.slider.create' ,
             [
                 'sliders' => Slider::all(),
+                'article_slid' => Article::where('published' , true)->get()
             ]);
     }
 

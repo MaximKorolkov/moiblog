@@ -11,7 +11,7 @@ use App\User;
 
 class ArticleController extends Controller
 {
-    public function show(Article $articleBySlug , Rubric $rubricBySlug)
+    public function show(Article $articleBySlug , Rubric $rubricBySlug , User $user)
     {
 
         /*auth()->user()->can('create', Article::class);*/
