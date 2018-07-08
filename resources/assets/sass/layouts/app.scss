@@ -26,10 +26,14 @@ time, mark, audio, video {
   list-style: none;
 }
 
+
 a {
   color: #fff;
-  font-family: Open Sans;
   text-decoration: none;
+}
+h2, h3, h4, h5{
+  font-weight: 700;
+  font-family: 'Oswald', sans-serif;
 }
 /* HTML5 display-role reset for older browsers */
 article,header, aside, details, figcaption, figure,
@@ -55,17 +59,9 @@ table {
 
 /*End CSS Reset*/
 
-html{
-
-
-
-
-
-}
-
-
 body{
   height: 100%;
+
 
 }
 
@@ -95,9 +91,9 @@ body{
 
 .main__content{
  margin: 0 auto;
-  background-color: #ffffff;
+  background-color:#e5e5e5;
   border: 1px solid rgba(255, 249, 249, 0.92);
-  padding: 0 5%;
+  padding: 0 8%;
 
 }
 .main__content__wrapper{

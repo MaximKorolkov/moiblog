@@ -13,15 +13,14 @@
         <header class="article__header">
             @if($article->image != '')
                 <div class="article__header-bg" style="background-image: url({{$article->image}})"  >
+                    @endif
+
                     <div class="line-read">
                     <h1 class="article__header__h1">{!! $article->header_h1 !!}</h1>
                     </div>
                     </div>
-            @endif
         </header>
-    <div class="container">
-    <div class="row">
-       <div class="col-sm-12">
+       <div class="article__wrapper">
                     <time class="article__header__time"
                           datetime="{{ $article->created_at  }}"
                           title="Время создания статьи : {{  $date }}">
@@ -60,12 +59,7 @@
 
             </footer>
            @include('web.pieces.comment')
-
-
-
        </div>
-    </div>
-    </div>
 
     </article>
     @endsection

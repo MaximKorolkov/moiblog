@@ -2,8 +2,7 @@
 
 @section('content')
 
-    <main class="main__content">
-        <div class="main__content__wrapper">
+
     @foreach($generals as $general)
         @include("web.pieces.{$general->type}_article", [
             'article' => $general,])
@@ -33,6 +32,4 @@
 
     @include('web.pieces.slider')
     @include('web.news.news-home')
-        </div>
-    </main>
 @endsection

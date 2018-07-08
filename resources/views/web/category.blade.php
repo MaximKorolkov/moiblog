@@ -1,29 +1,37 @@
-@extends('layouts.app')
+@extends('web.layout')
 
-@include('web.header')
+@section('content')
 
-@section('layout')
-
-
+<div class="category__content">
     @foreach($articles as $article)
 
-
-            <div class="col-sm-4 col-md-4">
-                <div class="thumbnail">
-                    <img src="{{$article->general_image}}"
-                         width="300px" height="200px" title="{{$article->title}}" alt="{{$article->title}}">
-                    <div class="caption">
-                        <h3>{{$article->title}}</h3>
-                        {!! $article->short_description !!}
-                        <p><a href="{{ action('ArticleController@show' , $article->slug)  }}"
-                              class="btn btn-primary" role="button">Читать Далее</a>
-
-                    </div>
-                </div>
+        <div class="category__item">
+            <div class="category__item__image">
+                <img src="{{$article->general_image}}" alt="{{$article->title}}" title="{{$article->title}}">
             </div>
+            <div class="category__item__text">
+                <h3>{!! $article->title !!}</h3>
+                <p>{!! $article->short_description !!}</p>
+            </div>
+        </div>
 
 
     @endforeach
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 @endsection
