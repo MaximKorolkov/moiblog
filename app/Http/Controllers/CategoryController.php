@@ -13,7 +13,8 @@ class CategoryController extends Controller
     {
 
         return view('web.category' , [
-            'articles' => $category->articles()->where('published' , true)->get(),
+            'categories' => $category,
+            'articles'   => $category->articles()->where('published' , true)->orderBy('created_at' , 'desc')->get(),
         ] );
 
     }

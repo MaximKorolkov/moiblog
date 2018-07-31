@@ -11,8 +11,12 @@ class Comment extends Model
             'name',
             'body',
             'parent_id',
-            'article_id'
+            'article_id',
         ];
 
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

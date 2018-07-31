@@ -14,7 +14,7 @@ class UserController extends Controller
     public function index(User $user)
     {
         return view('web.users.profile', [
-            'user' => $user
+            'user' => $user,
         ]);
     }
 
@@ -44,6 +44,7 @@ class UserController extends Controller
                     'social_google',
                     'social_telegram',
                     'site',
+                    'avatar',
                 ]
             ));
 
@@ -54,7 +55,7 @@ class UserController extends Controller
 
             DB::commit();
 
-            return redirect()->action('UserController@index');
+            return redirect()->action('UserController@edit');
 
         }catch (\Exception $exception)
         {

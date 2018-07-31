@@ -22,7 +22,7 @@ class ArticleStoreRequest extends FormRequest
     {
         return [
             'title' => 'required|string|max:100',
-            'header_h1' =>'string|max:100',
+            'header_h1' =>'string|max:200',
             'description_short' => 'string|max:500',
             'description' => 'required|string'
 

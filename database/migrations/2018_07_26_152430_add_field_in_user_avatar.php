@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class RubricAddTableSortId extends Migration
+class AddFieldInUserAvatar extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class RubricAddTableSortId extends Migration
      */
     public function up()
     {
-        Schema::table('rubrics', function (Blueprint $table) {
-            $table->integer('sort_id')->nullable();
+        Schema::table('users', function (Blueprint $table) {
+
+            $table->string('avatar')->nullable();
 
         });
     }
@@ -26,9 +27,9 @@ class RubricAddTableSortId extends Migration
      */
     public function down()
     {
-        Schema::table('rubrics', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
 
-            $table->removeColumn('sort_id');
+            $table->removeColumn('avatar');
 
         });
     }

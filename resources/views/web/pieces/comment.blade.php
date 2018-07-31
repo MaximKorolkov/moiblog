@@ -1,22 +1,24 @@
+<div class="article__comment__view">
 @foreach($comments as $comment)
-    <h4>{{ $comment->name }}</h4>
-    <div>{{ $comment->body }}</div>
+    <img class="article__comment_avatar" src="{{ $comment->user->avatar }}" alt="">
+    <a href="{{ action('UserController@index', $article->user->id)}}">{{ $comment->name }}</a>
+    <div class="comment__body">{{ $comment->body }}</div>
 @endforeach
+</div>
+<div class="article__comment">
 @if(auth()->user())
-    <form method="POST" action="{{  action('CommentController@createComment', $article)  }}">
+    <form method="post" action="{{  action('CommentController@createComment', $article)  }}">
         {{csrf_field()}}
+        <input hidden="hidden" type="text" name="name" id="name"  value="{{auth()->user()->name}}"/>
         <fieldset>
-        <label for="name">Имя</label>
-        <input type="text" name="name" id="name" />
+            <label class="comment__label" for="body">Комментарий</label>
+            <textarea class="comment__field" name="body" id="body" cols="40" rows="5"></textarea>
         </fieldset>
-        <fieldset>
-            <label for="body">Комментарий</label>
-            <textarea name="body" id="body" cols="40" rows="5"></textarea>
-        </fieldset>
-
-        <button type="submit">Отправить</button>
+        <button class="comment__submit" type="submit">Отправить</button>
     </form>
+    @else
+    <p>Что бы оставить комментарий <a href="{{route('login')}}">войдите</a></p>
 @endif
-
+</div>
 
 

@@ -45,6 +45,7 @@ class User extends BaseModel implements
         'social_google',
         'social_telegram',
         'site',
+        'avatar'
     ];
 
     public function followers()
@@ -70,6 +71,10 @@ class User extends BaseModel implements
     public function articles()
     {
         return $this->hasMany(Article::class);
+    }
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 
     /**

@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use App\Comment;
 use App\Article;
 
 class CommentController extends Controller
 {
-
-    public function createComment(Request $request, Article $article)
+    public function createComment(Request $request, Article $article , User $user , Comment $comment)
     {
+
+
         $comment = new Comment($request->only(
             'name',
             'body'
@@ -24,10 +26,15 @@ class CommentController extends Controller
             ]
             );
 
+
         $comment->article_id = $article->id;
 
+
+
         $comment->save();
+
         return back();
+
     }
 
 

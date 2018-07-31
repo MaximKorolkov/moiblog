@@ -7,9 +7,6 @@
         <div class="profile-private">
         <form action="{{action('UserController@update', auth()->user()->id )}}" method="post">
             {{csrf_field()}}
-
-
-
             <div class="form-group">
                 <label for="name">Ваш Никнейм:</label>
                 <input type="text" class="form-control" id="name" name="name"
@@ -31,7 +28,7 @@
                 <fieldset class="admin-filedsaet">
                     <label for="published_email">Показывать в профиле</label>
                     <input type="checkbox" name="published_email" id="published_email"
-                            {{ auth()->user()->published_email === true  ?  ''  : 'checked=1'  }}/>
+                            {{ auth()->user()->published_email == true  ?  ''  : 'checked=1'  }}/>
                 </fieldset>
 
             </div>
@@ -56,6 +53,18 @@
                 @endif
             </div>
 
+            <div class="input-group">
+                <script src="/vendor/laravel-filemanager/js/lfm.js"></script>
+                            <span class="input-group-btn">
+                                <a id="avatar" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
+                                    <i class="fa fa-picture-o"></i> Выбрать аватар
+                                </a>
+                            </span>
+                <input id="thumbnail" class="form-control" type="text" name="avatar">
+            </div>
+            <img src="{{old('avatar') ? old('avatar') : ''}}" id="holder" style="margin-top:15px;max-height:100px;">
+
+            <script>$('#avatar').filemanager('image');</script>
 
 
 

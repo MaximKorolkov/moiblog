@@ -81,6 +81,7 @@ class ArticleController extends Controller
 
             $article->user_id = auth()->user()->id;
             $article->slug = str_slug($article->title);
+            $article->short_description = trim(strip_tags($request->short_description));
             $article->published = !empty($request->input('published'));
             $article->show_post = !empty($request->input('show_post'));
 
@@ -130,6 +131,7 @@ class ArticleController extends Controller
             ));
 
             $article->slug = str_slug($article->title);
+            $article->short_description = trim(strip_tags($request->short_description));
             $article->published = !empty($request->input('published'));
             $article->show_post = !empty($request->input('show_post'));
 

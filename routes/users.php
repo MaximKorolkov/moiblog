@@ -5,8 +5,8 @@
             Route::get('/' , 'UserController@index');
             Route::get('/settings', 'UserController@edit');
             Route::post('/update', 'UserController@update');
-            Route::post('/subscribe', 'UserController@addSubscribe');
-            Route::post('/unsubscribe', 'UserController@deleteSubscribe');
+            Route::post('subscribe', 'UserController@addSubscribe');
+            Route::post('unsubscribe', 'UserController@deleteSubscribe');
             Route::get('/my-post'     , 'UserPostController@index');
             Route::get('/create-post' , 'UserPostController@create');
             Route::post('/store-post' , 'UserPostController@store');

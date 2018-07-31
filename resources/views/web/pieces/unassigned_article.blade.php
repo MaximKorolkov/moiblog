@@ -1,12 +1,12 @@
 <div class="grid__item">
     <a href="{{ action('ArticleController@show' , $article['slug'])  }}">
-        <img src="{{$article['general_image']}}" width="{{$article['width_image']}}" height="{{$article['height_image']}}"
+        <img src="{{$article['general_image']}}"
              title="{{$article['title']}}">
 	</a>
         <div class="grid__item_text">
 			<a href="{{action('ArticleController@show' , $article['slug'])}}">
             <h4>{{$article['title']}}</h4>
-            <p>{!! $article['short_description'] !!}</p>
+            <p>{{ mb_substr($article['short_description'] , 0 , 90)}}</p>
 			</a>
 
     <span class="grid_help_like">

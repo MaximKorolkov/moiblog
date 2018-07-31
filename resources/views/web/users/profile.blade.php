@@ -7,6 +7,11 @@
 
 @section('layout')
 <div class="profile">
+    <style>
+        .profile-setting-navigation ul li a {
+            color:#000000;
+        }
+    </style>
     <div class="profile-content">
         <div class="left-content">
 
@@ -14,7 +19,7 @@
             <ul>
                 {{-- Refactoring --}}
                 @if($user->id == auth()->user()->id)
-                    <li><a href="{{ action('UserController@edit', $user->id) }}">Настройки</a></li>
+                    <li ><a href="{{ action('UserController@edit', $user->id) }}">Настройки</a></li>
                 @else
                     @if(!auth()->user()->followers->contains($user->id))
                         <li>
@@ -44,6 +49,17 @@
                         <a href="{{ action('ThreadController@create', $user->id) }}">Написать сообщение</a>
                     @endif
                 </li>
+                <li>
+                    <a href="{{ route('logout') }}"
+                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                        Logout
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
+                </li>
             </ul>
             </div>
         </div>
@@ -64,7 +80,7 @@
                 <li>Ваш сайт : <a href="{{ $user->site }}">{{ $user->site }}</a></li>
             </ul>
 
-
+            <img src="{{$user->avatar}}" alt="">
         </div>
 
         <div class="right-content">

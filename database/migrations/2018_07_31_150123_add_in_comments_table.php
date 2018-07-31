@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class RubricAddTableSortId extends Migration
+class AddInCommentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class RubricAddTableSortId extends Migration
      */
     public function up()
     {
-        Schema::table('rubrics', function (Blueprint $table) {
-            $table->integer('sort_id')->nullable();
+        Schema::table('comments', function (Blueprint $table) {
+
+            $table->unsignedInteger('user_id')->references('id')->on('users')->nullable();
 
         });
     }
@@ -26,9 +27,9 @@ class RubricAddTableSortId extends Migration
      */
     public function down()
     {
-        Schema::table('rubrics', function (Blueprint $table) {
+        Schema::table('comments', function (Blueprint $table) {
 
-            $table->removeColumn('sort_id');
+            $table->removeColumn('user_id');
 
         });
     }
