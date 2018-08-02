@@ -13,7 +13,7 @@
 
 
     Route::get('/articles/{articleBySlug}' , 'ArticleController@show');
-    Route::post('/articles/{article}' , 'CommentController@createComment' );
+    Route::post('/articles/{article}/comment' , 'CommentController@createComment' );
     /* Route::post('/articles/{articleBySlug}' , 'CommentController@showComment' );*/
     Route::get('/category/{categoryBySlug}' , 'CategoryController@show');
     Route::get('/news' , 'NovostController@NewsPage');

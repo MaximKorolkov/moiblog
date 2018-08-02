@@ -9,22 +9,14 @@ use App\Article;
 
 class CommentController extends Controller
 {
-    public function createComment(Request $request, Article $article , User $user , Comment $comment)
+    public function createComment(Request $request, Article $article)
     {
-
-
         $comment = new Comment($request->only(
-            'name',
             'body'
         ));
 
-        $this->validate($request, [
-
-                'name' => 'required|max:20',
-                'body' => 'required'
-
-            ]
-            );
+        $comment->name = auth()->user()->name;
+        $comment->user_id = auth()->user()->id;
 
 
         $comment->article_id = $article->id;

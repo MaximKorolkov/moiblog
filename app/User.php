@@ -45,7 +45,8 @@ class User extends BaseModel implements
         'social_google',
         'social_telegram',
         'site',
-        'avatar'
+        'avatar',
+        'thumbImage',
     ];
 
     public function followers()
@@ -75,6 +76,12 @@ class User extends BaseModel implements
     public function comments()
     {
         return $this->hasMany(Comment::class);
+    }
+
+    public function getThumbImageAttribute()
+    {
+        $path = explode('/', $this->attributes['avatar']);
+        return implode('/', array_merge(array_slice($path, 0, 3), ['thumbs'], array_slice($path, 3)));
     }
 
     /**

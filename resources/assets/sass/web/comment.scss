@@ -1,16 +1,31 @@
 .article__comment__view{
-  .article__comment_avatar{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    img{
-      width: 100%;
-      height: 100%;
-      -o-object-fit: cover;
-      object-fit: cover;
-      background-blend-mode: color, multiply;
+  display: flex;
+  flex-direction:column;
+  .comment_head{
+    display: flex;
+    flex-direction:row;
+    position: relative;
+    margin-bottom:.5%;
+    margin-top:1.5%;
+      img{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        -o-object-fit: cover;
+        object-fit: cover;
+        background-blend-mode: color, multiply;
 
+        }
+      a{
+        line-height: 3;
+        height: 100%;
+        font-size:1.2em;
+        font-weight:500;
+        margin-left: 1%;
+      }
     }
+  .comment__body{
 
   }
+
 }

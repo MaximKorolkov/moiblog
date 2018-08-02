@@ -61,6 +61,7 @@ class UserPostController extends Controller
             ]));
 
             $article->user_id = auth()->user()->id;
+            $article->short_description = trim(strip_tags($request->short_description));
             $article->slug = str_slug($request->input('title'));
             $article->published = !empty($request->input('published'));
 
@@ -125,6 +126,7 @@ class UserPostController extends Controller
             ]));
 
             $article->user_id = auth()->user()->id;
+            $article->short_description = trim(strip_tags($request->short_description));
             $article->slug = str_slug($request->input('title'));
             $article->published = !empty($request->input('published'));
 
