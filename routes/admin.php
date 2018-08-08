@@ -58,6 +58,12 @@ Route::group(['prefix' => 'admin' , 'namespace' => 'Admin'] , function ()
         Route::delete('/destroy/{novost}' , 'NovostController@destroy');
     });
 
+    Route::group(['prefix' => 'homeslider'] , function (){
+        Route::get('/index'  , 'HomesliderController@index');
+        Route::get('/create' , 'HomesliderController@create');
+        Route::post('/store' , 'HomesliderController@store');
+    });
+
     Route::group(['prefix' => 'singpage'] , function(){
         Route::get('/index' , 'SinglePageController@index');
         Route::get('/create' , 'SinglePageController@create');

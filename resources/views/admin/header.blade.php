@@ -26,6 +26,7 @@
                         <li><a href="{{ action('Admin\AdminMenuController@index')  }}">Меню</a></li>
                         <li><a href="{{ action('Admin\SliderController@index')  }}">Слайдер</a></li>
                         <li><a href="{{ action('Admin\CommentController@index')  }}">Комментарии</a></li>
+                        <li><a href="{{ action('Admin\HomesliderController@index')  }}">Слайдер на главной</a></li>
                 </ul>
             </li>
             <li><a href="{{ action('Admin\CategoryController@index')  }}">Категории</a></li>

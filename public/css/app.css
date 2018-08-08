@@ -9517,11 +9517,24 @@ header {
 }
 
 .article__comment__view .comment_head a {
-  line-height: 3;
+  line-height: 1.5;
   height: 100%;
   font-size: 1.2em;
-  font-weight: 500;
+  font-weight: 600;
   margin-left: 1%;
+}
+
+.article__comment__view .comment_head time {
+  line-height: 1.5;
+  height: 100%;
+  font-size: 1.2em;
+  margin-left: 1.1%;
+  color: #000000;
+}
+
+.article__comment__view .comment__body p {
+  color: #000000;
+  font-size: 1.1em;
 }
 
 .flex-news {

@@ -13,6 +13,7 @@
         }
     </style>
     <div class="profile-content">
+        <img src="{{$user->avatar}}" alt="" width="250px" height="250px">
         <div class="left-content">
 
             <div class="profile-setting-navigation">
@@ -80,7 +81,7 @@
                 <li>Ваш сайт : <a href="{{ $user->site }}">{{ $user->site }}</a></li>
             </ul>
 
-            <img src="{{$user->avatar}}" alt="">
+
         </div>
 
         <div class="right-content">

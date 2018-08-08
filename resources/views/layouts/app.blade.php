@@ -19,6 +19,18 @@
     <script src="{{ asset('js/socket.io-1.4.5.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
 
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+            },
+            dataType: 'json',
+            xhrFields: {
+                withCredentials: true
+            }
+        });
+    </script>
+
 </head>
 <body>
 @yield('header')

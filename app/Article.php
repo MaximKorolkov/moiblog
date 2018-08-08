@@ -63,4 +63,9 @@ class Article extends BaseModel
         return $this->belongsTo(User::class);
     }
 
+    public function homeslider()
+    {
+        return $this->belongsTo(homeslider::class);
+    }
+
 }

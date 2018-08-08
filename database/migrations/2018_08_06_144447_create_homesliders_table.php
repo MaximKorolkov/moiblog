@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddInCommentsTable extends Migration
+class CreateHomeslidersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class AddInCommentsTable extends Migration
      */
     public function up()
     {
-        Schema::table('comments', function (Blueprint $table) {
-
-            $table->unsignedInteger('user_id')->references('id')->on('users')->nullable();
-
+        Schema::create('homesliders', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('article_id')->nullable();
+            $table->integer('news_id')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -27,10 +28,6 @@ class AddInCommentsTable extends Migration
      */
     public function down()
     {
-        Schema::table('comments', function (Blueprint $table) {
-
-            $table->removeColumn('user_id');
-
-        });
+        Schema::dropIfExists('homesliders');
     }
 }
